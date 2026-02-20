@@ -472,7 +472,7 @@ def selectRoom():
                     player.pos.y = 210
                     currentroommapcoord = (currentroommapcoord[0], currentroommapcoord[1] + 40)
             if moved:
-                playSound("doorenter.mp3")
+                playSound("doorenter.ogg")
                 if floorlist[floorcount].map[currentroomrow][currentroomcol].exit != "":
                     dispTrapdoor = True
                 else:
@@ -693,7 +693,7 @@ def playerHitCheck():
 def pickupCollected():
     pickupindex = player.boundingBox.collidelist(coinCollisionList)
     if pickupindex != -1:
-        playSound("coin.mp3")
+        playSound("coin.ogg")
         player.coins += floorlist[floorcount].map[currentroomrow][currentroomcol].pickuplist[pickupindex].value
         coinCollisionList.pop(pickupindex)
         floorlist[floorcount].map[currentroomrow][currentroomcol].pickuplist.pop(pickupindex)
@@ -757,28 +757,28 @@ while running:
                     animation_list = createAnimation()
                     player.attackspeed += 0.8
                     classPicked = True
-                    playSound("mouse.mp3")
+                    playSound("mouse.ogg")
                 elif speedsterbox.collidepoint(event.pos):
                     player = Character(pygame.image.load("speedster_walk.png").convert(), 100, 100)
                     animation_list.clear()
                     animation_list = createAnimation()
                     player.speed += 0.4
                     classPicked = True
-                    playSound("mouse.mp3")
+                    playSound("mouse.ogg")
                 elif warriorbox.collidepoint(event.pos):
                     player = Character(pygame.image.load("warrior_walk.png").convert(), 100, 100)
                     animation_list.clear()
                     animation_list = createAnimation()
                     player.damage += 1
                     classPicked = True
-                    playSound("mouse.mp3")
+                    playSound("mouse.ogg")
                 elif rangerbox.collidepoint(event.pos):
                     player = Character(pygame.image.load("ranger_walk.png").convert(), 100, 100)
                     animation_list.clear()
                     animation_list = createAnimation()
                     player.range += 0.6
                     classPicked = True
-                    playSound("mouse.mp3")
+                    playSound("mouse.ogg")
                 elif tankbox.collidepoint(event.pos):
                     player = Character(pygame.image.load("tank_walk.png").convert(), 100, 100)
                     animation_list.clear()
@@ -786,7 +786,7 @@ while running:
                     player.maxhealth += 1
                     player.health += 1
                     classPicked = True
-                    playSound("mouse.mp3")
+                    playSound("mouse.ogg")
 
         screen.blit(characterselectscreen,(0,0))
 
